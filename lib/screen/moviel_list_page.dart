@@ -13,7 +13,7 @@ class MovieListPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: movieList.length, // Sesuai dengan nama list di model lu
+        itemCount: movieList.length,
         itemBuilder: (context, index) {
           final movie = movieList[index];
           return MovieItemCard(movie: movie);
@@ -24,7 +24,7 @@ class MovieListPage extends StatelessWidget {
 }
 
 class MovieItemCard extends StatefulWidget {
-  final MovieModel movie; // Pake MovieModel sesuai class di file lu
+  final MovieModel movie; 
 
   const MovieItemCard({super.key, required this.movie});
 
@@ -57,7 +57,7 @@ class _MovieItemCardState extends State<MovieItemCard> {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.network(
-                  widget.movie.imgUrl, // Pake imgUrl
+                  widget.movie.imgUrl, 
                   width: 80,
                   height: 120,
                   fit: BoxFit.cover,

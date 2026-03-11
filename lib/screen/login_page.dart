@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'moviel_list_page.dart'; // Pastikan import ini bener
+import 'moviel_list_page.dart'; 
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -12,21 +12,18 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  // TODO: GANTI ANGKA "123" DI BAWAH INI DENGAN 3 DIGIT TERAKHIR NIM LU
-  final String _correctPassword = "123"; 
+  final String _correctPassword = "039"; 
 
   void _handleLogin() {
     String username = _usernameController.text;
     String password = _passwordController.text;
 
     if (username.isNotEmpty && password == _correctPassword) {
-      // Kalau sukses, navigasi ke Movie List Page dan hapus histori login (biar gak bisa di-back)
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MovieListPage()),
       );
     } else {
-      // Kalau gagal, munculin pesan error di bawah (SnackBar)
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Login Gagal! Pastikan username terisi dan password pakai 3 digit terakhir NIM.'),

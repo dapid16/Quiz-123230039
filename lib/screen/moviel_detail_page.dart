@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart'; // Buat buka link Wikipedia
+import 'package:url_launcher/url_launcher.dart'; 
 import '../models/movie_model.dart';
 
 class MovieDetailPage extends StatelessWidget {
@@ -7,7 +7,6 @@ class MovieDetailPage extends StatelessWidget {
 
   const MovieDetailPage({super.key, required this.movie});
 
-  // Fungsi buat buka link Wikipedia
   Future<void> _launchURL() async {
     final Uri url = Uri.parse(movie.movieUrl);
     if (!await launchUrl(url)) {
@@ -21,12 +20,10 @@ class MovieDetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(movie.title),
       ),
-      // Pake SingleChildScrollView biar layarnya bisa di-scroll ke bawah
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Poster Film gede di atas
             Image.network(
               movie.imgUrl,
               width: double.infinity,
@@ -38,14 +35,12 @@ class MovieDetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Judul
                   Text(
                     movie.title,
                     style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 8),
                   
-                  // Tahun, Genre, Rating
                   Row(
                     children: [
                       Container(
@@ -65,14 +60,12 @@ class MovieDetailPage extends StatelessWidget {
                   ),
                   const Divider(height: 30),
 
-                  // Director & Casts
                   Text('Director: ${movie.director}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
                   const SizedBox(height: 8),
                   Text('Cast: ${movie.casts.join(", ")}', style: const TextStyle(fontSize: 16)), // .join buat gabungin list array jadi string
                   
                   const Divider(height: 30),
 
-                  // Sinopsis
                   const Text('Synopsis', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   Text(
@@ -82,7 +75,6 @@ class MovieDetailPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
 
-                  // Tombol Wikipedia
                   SizedBox(
                     width: double.infinity,
                     height: 50,
